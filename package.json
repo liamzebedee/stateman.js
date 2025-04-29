@@ -1,0 +1,31 @@
+{
+  "name": "@liamzebedee/stateman.js",
+  "version": "0.1.0",
+  "main": "lib/index.js", 
+  "types": "lib/index.d.ts", 
+  "exports": {
+    ".": {
+      "import": "./lib/index.js",
+      "types": "./lib/index.d.ts"
+    }
+  },
+  "files": [
+    "lib/"
+  ],
+  "scripts": {
+    "watch": "tsc --watch",
+    "build": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/react": "^19.1.2",
+    "tsc": "^2.0.4",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "event-target-shim": "^6.0.2",
+    "react": "^19.1.0"
+  }
+}
