@@ -1,6 +1,5 @@
 // stateman.ts
-
-import { useEffect, useState, useSyncExternalStore } from 'react';
+import { useEffect, useState } from 'react';
 import { EventTarget } from 'event-target-shim';
 
 type Subscriber = () => void;
@@ -52,9 +51,7 @@ export class Model<T extends object> {
     }
 
     subscribe(fn: Subscriber): () => void {
-        this._stateEventTarget.addEventListener('change', () => {
-            fn();
-        });
+        this._stateEventTarget.addEventListener('change', fn);
         return () => this._stateEventTarget.removeEventListener('change', fn);
     }
 }

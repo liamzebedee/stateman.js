@@ -47,15 +47,16 @@ export class TodoListController extends Model<TodosState> {
 
 Use controllers in your views with `useController`:
 
-```ts
+```tsx
 export default function Home() {
   const todoController = useController(new TodoListController());
   // ...
+}
 ```
 
 Call methods on the controllers to update state:
 
-```ts
+```tsx
 return <div>
     <button onClick={() => todosController.addTodo("test")}/>
     <button onClick={() => todosController.editTodo(0, "test-edited")}/>
@@ -64,7 +65,7 @@ return <div>
 
 Render the state from a controller:
 
-```ts
+```tsx
 return <div>
     {todoController.state.todos.map((todo, i) => {
         return <div key={i}>{todo}</div>
@@ -74,13 +75,13 @@ return <div>
 
 Stateman controllers can be global singletons, meaning you can use their state in different places. That's pretty simple:
 
-```ts
+```tsx
 const userController$ = new UserController()
 
 const Login = () => {
     const userController = useController(userController$)
     return <div>
-        <button onClick={userController.login()}>
+        <button onClick={userController.login()}/>
     </div>
 }
 
@@ -92,7 +93,7 @@ const LoggedInView = () => {
 
 They can also just be instantiated, meaning you can use the same controller logic for many instances of a component, e.g.:
 
-```ts
+```tsx
 const ReplyToComment = ({ commentId }: { commentId: number }) => {
     const postCommentController = useController(new PostCommentController(commentId))
     // ...
